@@ -1,0 +1,49 @@
+.container{
+   font-size: 1.5rem;
+    display: flex;
+    
+    justify-content: space-between;
+    
+}
+.bold{
+    font-weight: 200%;
+}
+.heading_1 {
+
+        
+        justify-content: center;
+}
+.heading_2{
+
+}
+.isScotland{
+    align-items: center;
+}
+
+.para{
+    &__info{
+
+    }
+}
+
+.valuation-form{
+
+}
+
+.your-purchase{
+
+}
+
+
+
+
+
+.contact-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .contact-form-full-width {
+    width: 100%;
+  }

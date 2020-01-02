@@ -1,0 +1,72 @@
+<div class="container">
+
+
+    <div class="heading_1 bold">
+        <p>Your valuation contact details</p>
+    </div>
+    <hr class="">
+
+    <div class="isScotland">
+        <label class="title">Is the property in Scotland ? *</label>
+        <div class="button_class">
+
+        </div>
+
+    </div>
+
+    <div class="para">
+        <p class="para__info"></p>
+    </div>
+
+    <div class="valuation-form">
+
+        <p class="question"></p>
+        <mat-form-field>
+            <mat-label>Select</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <form class="contact-form">
+
+            <mat-form-field class="contact-form-full-width">
+                <input matInput placeholder="Contact name" value="Sushi">
+            </mat-form-field>
+
+            <mat-form-field class="contact-form-full-width">
+                <input type="number" matInput placeholder="Contact number" value="123165">
+            </mat-form-field>
+        </form>
+    </div>
+
+
+
+    <div class="heading_2 bold">
+        <p>Your Purchase</p>
+    </div>
+    <hr>
+
+    <div class="your-purchase">
+        <label class="title">Are you </label>
+        <div class="button_class">
+
+        </div>
+
+        <div class="navigation">
+            <button class="save_comeback" value="">XYZ</button>
+            <button class="save_continue" value="">XYZ</button>
+
+        </div>
+
+        <div class="information">
+            <h3>Importnat Information</h3>
+            <div class="info-box">
+                sgfdkjhkldh
+            </div>
+        </div>
+
+    </div>
+</div>
