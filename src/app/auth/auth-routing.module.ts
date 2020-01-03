@@ -9,19 +9,19 @@ import { LogoutComponent } from './logout/logout.component';
 const routes: Routes = [
   {
   path: 'login',
-  component:LoginComponent
+  component: LoginComponent
 },
 {
   path: 'register',
-  component:RegisterComponent
+  component: RegisterComponent
 },
 {
   path: 'forgot-password',
-  component:ForgotPaswordComponent
+  component: ForgotPaswordComponent
 },
 {
   path: 'logout',
-  component:LogoutComponent
+  component: LogoutComponent
 },
 ];
 

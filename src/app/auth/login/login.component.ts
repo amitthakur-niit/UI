@@ -7,19 +7,19 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-loginForm: FormGroup
+loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
      email: [''],
      password: ['']
 
-    })
+    });
   }
 
   ngOnInit() {
   }
-  onSubmit(){
+  onSubmit() {
     console.log('jjjjjjjjjjjjj', this.loginForm.value);
 
   }
