@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +18,7 @@ import { HowToApplyComponent } from './forms/how-to-apply/how-to-apply.component
 import { MortgageOptionsComponent } from './forms/mortgage-options/mortgage-options.component';
 import { ValuationComponent } from './forms/valuation/valuation.component';
 import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -29,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContentComponent,
     HowToApplyComponent,
     MortgageOptionsComponent,
-    ValuationComponent
+    ValuationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +44,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+  ],
+  exports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
   ],
   providers: [],
   bootstrap: [AppComponent]
