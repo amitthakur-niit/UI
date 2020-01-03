@@ -19,6 +19,7 @@ import { MortgageOptionsComponent } from './forms/mortgage-options/mortgage-opti
 import { ValuationComponent } from './forms/valuation/valuation.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatListModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

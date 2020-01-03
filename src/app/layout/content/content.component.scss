@@ -1,9 +1,11 @@
 .container{
-   background-color: #F0F0F0
+   background-color: #F0F0F0;
+  
 }
 
 .navigation{
-    margin:0 13vw;
+    
+    margin:auto 13vw;
     display: flex;
     align-self: auto;
     
@@ -12,7 +14,7 @@
 
 .user-nav{
 
-    flex:0 0 18%;
+flex:0 0 18%;
 border-style: ridge;
 background-color: #F0F0F0   
 
@@ -25,6 +27,6 @@ background-color: #FFFFFF
 }
 
 
-a:hover {
+a:active {
         background-color: #E40900;
       }  

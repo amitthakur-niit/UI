@@ -39,24 +39,30 @@
         <p class="question"></p>
        
 
-        <form class="contact-form">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="contact-form">
 
 
-            <mat-form-field class="contact-form-full-width">
+            <mat-form-field class="contact-form-full-width" >
                 <mat-label>Select</mat-label>
-                <mat-select>
+                <mat-select formControlName="ContactPerson">
                     <mat-option *ngFor="let food of foods" [value]="food.value">
                         {{food.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field class="contact-form-full-width">
-                <input matInput placeholder="Contact name" value="Sushi">
+            <mat-form-field class="contact-form-full-width" >
+                <input matInput placeholder="Contact name" value="" formControlName="ContactName">
+                <mat-error *ngIf="!formGroup.controls['ContactName'].valid && formGroup.controls['ContactName'].touched">
+                    {{ required }}
+                </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="contact-form-full-width">
-                <input type="number" matInput placeholder="Contact number" value="123165">
+            <mat-form-field class="contact-form-full-width"   >
+                <input type="number" matInput placeholder="Contact number" value="" formControlName="ContactNumber">
+                <mat-error *ngIf="!formGroup.controls['ContactNumber'].valid && formGroup.controls['ContactNumber'].touched">
+                    {{ required }}
+                </mat-error>
             </mat-form-field>
         </form>
     </div>
