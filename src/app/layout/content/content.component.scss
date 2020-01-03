@@ -1,30 +1,30 @@
 .container{
-    
-   background-color: rgb(243, 235, 235);
-    
-    
+   background-color: #F0F0F0
 }
-
-
-
 
 .navigation{
     margin:0 13vw;
     display: flex;
+    align-self: auto;
     
 }
 
 
 .user-nav{
-width: 13vw;
-height : 80vh;
+
+    flex:0 0 18%;
 border-style: ridge;
-background-color: rgb(217, 206, 236);   
+background-color: #F0F0F0   
 
 }
 
 .user-form{
-    width:60vw;
-    height:80vh;
-background-color:  rgb(247, 243, 243);
+ 
+ flex:1;   
+background-color: #FFFFFF
 }
+
+
+a:hover {
+        background-color: #E40900;
+      }  
