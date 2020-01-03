@@ -1,0 +1,15 @@
+
+<section class="login-section">
+  <form [formGroup]="loginForm"  class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="email" placeholder="Email">
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput formControlName="password" placeholder="Password"></textarea>
+    </mat-form-field>
+    <button (click)="onSubmit()">Submit</button>
+  </form>
+</section>
+

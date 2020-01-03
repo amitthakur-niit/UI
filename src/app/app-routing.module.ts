@@ -6,10 +6,23 @@ import { ValuationComponent } from './forms/valuation/valuation.component';
 
 
 const routes: Routes = [
-  { path: 'how-to-apply', component: HowToApplyComponent },
-  { path: 'mortgage-options', component: MortgageOptionsComponent },
-  {path : 'valuation', component : ValuationComponent}
-  
+  {
+    path: 'how-to-apply',
+    component: HowToApplyComponent
+   },
+  {
+    path: 'mortgage-options',
+  component: MortgageOptionsComponent },
+  {
+    path : 'valuation',
+    component : ValuationComponent
+  },
+  {
+    path : 'auth',
+    loadChildren : './auth/auth.module#AuthModule'
+  },
+
+
   //{ path: '**', component: PageNotFoundComponent }
 ];
 

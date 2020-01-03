@@ -1,13 +1,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": { "*": ["types/*"] },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "emitDecoratorMetadata": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "module": "es2015",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
