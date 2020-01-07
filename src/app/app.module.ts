@@ -21,38 +21,43 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularServicesService } from './auth/angular-services.service';
-import { AuthModule } from './auth/auth.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+
+import { AuthModule } from './auth/auth.module';
+import { FormsListModule } from './forms/forms-list.module';
+import { MaterialDesignModule } from './materialDesign/material-design.module';
+import { CoreService } from './core/core.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContentComponent,
-    HowToApplyComponent,
-    MortgageOptionsComponent,
-    ValuationComponent,
+    ContentComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
+    HttpClientModule,
+    /* MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatSelectModule,
-    MatInputModule,
+    MatInputModule, */
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
     HttpClientModule,
+    FormsListModule,
+    MaterialDesignModule
   ],
-  exports: [
+/*   exports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -66,7 +71,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-  ],
+  ], */
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
   ],
