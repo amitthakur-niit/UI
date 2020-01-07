@@ -1,19 +1,32 @@
+<div class="container">
+  <div class="header">
+    <h1>LOGIN </h1>
+</div>
+  <div class="form-container text">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="register-form">
+     <!--Email address-->
+     <mat-form-field class="register-form-full-width">
+      <input type="text" matInput placeholder="Email address" value="" formControlName="email">
+      <mat-error
+          *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">
+          {{ required }}
+      </mat-error>
+  </mat-form-field>
 
-<section class="login-section">
-  <form [formGroup]="loginForm"  class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput formControlName="email" placeholder="Email">
 
-    </mat-form-field>
+  
+  <!--Password-->
+  <mat-form-field class="register-form-full-width">
+      <input type="text" matInput placeholder="Password" value="" formControlName="password">
+      <mat-error
+          *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+          {{ required }}
+      </mat-error>
+  </mat-form-field>
+  <br>
+  <button class="continue" mat-raised-button color="warn">LogIn</button>
 
-    <mat-form-field class="example-full-width">
-      <textarea matInput formControlName="password" placeholder="Password"></textarea>
-    </mat-form-field>
-    <button mat-button (click)="onSubmit()">Submit</button>
-
-    <a mat-list-item href="#" routerLink="/auth/forgot-password">Forget Password</a>
-
-
-  </form>
-</section>
+</form>
+</div>
+</div>
 

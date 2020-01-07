@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +10,25 @@ export class LoginComponent implements OnInit {
 loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
-     email: [''],
-     password: ['']
-
-    });
+   
   }
 
   ngOnInit() {
+    this.logIn();
   }
+
+  logIn() {
+    let name_regexg = "";
+    let number_regex = "";
+    this.loginForm = this.fb.group({
+     
+      
+      'email': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
+      'password': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
+    });
+
+  }
+
   onSubmit() {
     console.log('jjjjjjjjjjjjj', this.loginForm.value);
 
