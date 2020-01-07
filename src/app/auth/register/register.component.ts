@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDatepicker } from '@angular/material';
+import { RegisterService } from '../../register.service';
+
 
 @Component({
   selector: 'app-register',
@@ -13,7 +15,7 @@ export class RegisterComponent implements OnInit {
   required: string = 'This field is required';
   datepicker: MatDatepicker<Date>;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
 
   ngOnInit() {
     this.createForm();
@@ -29,26 +31,23 @@ export class RegisterComponent implements OnInit {
       'email': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
       'password': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
       'cnfPassword': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      'securityQuestion':[null,Validators.required],
+      'securityQuestion': [null, Validators.required],
       'answer': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-    //  'singleOrJoint':[null,Validators.required],
+      //  'singleOrJoint':[null,Validators.required],
     });
 
   }
 
   questions: any[] = [
-    {value: 'pet', viewValue: 'Name of your pet'},
-    {value: 'school', viewValue: 'Name of your first school'},
-    {value: 'novel', viewValue: 'Name of the first novel you read'}
+    { value: 'pet', viewValue: 'Name of your pet' },
+    { value: 'school', viewValue: 'Name of your first school' },
+    { value: 'novel', viewValue: 'Name of the first novel you read' }
   ];
 
   options: string[] = ['Single', 'Joint'];
 
-onSubmit(data:any){
-
-  //this.coreService.regi
-
-console.log(data);
-}
+  onSubmit(data: any) {
+    this.registerService.registerData(data).subscribe();
+  }
 
 }

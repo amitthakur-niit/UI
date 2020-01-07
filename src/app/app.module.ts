@@ -26,7 +26,6 @@ import { AngularServicesService } from './auth/angular-services.service';
 import { AuthModule } from './auth/auth.module';
 import { FormsListModule } from './forms/forms-list.module';
 import { MaterialDesignModule } from './materialDesign/material-design.module';
-import { CoreService } from './core/core.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
