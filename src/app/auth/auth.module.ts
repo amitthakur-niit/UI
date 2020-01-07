@@ -11,8 +11,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MaterialDesignModule } from '../materialDesign/material-design.module';
 
-
-
 @NgModule({
   declarations: [
     LoginComponent,
@@ -37,6 +35,7 @@ import { MaterialDesignModule } from '../materialDesign/material-design.module';
   exports: [RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    ForgotPaswordComponent]
+    ForgotPaswordComponent],
+    providers: [],
 })
 export class AuthModule { }
