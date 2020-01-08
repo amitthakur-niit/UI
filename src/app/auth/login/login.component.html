@@ -17,15 +17,18 @@
   
   <!--Password-->
   <mat-form-field class="register-form-full-width">
-      <input type="text" matInput placeholder="Password" value="" formControlName="password">
+      <input type="text" matInput placeholder="Password" value="" formControlName="pwd">
       <mat-error
-          *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+          *ngIf="!loginForm.controls['pwd'].valid && loginForm.controls['pwd'].touched">
           {{ required }}
       </mat-error>
   </mat-form-field>
   <br>
-  <button class="continue" mat-raised-button color="warn">LogIn</button>
-
+  <button class="continue" mat-raised-button  color="warn">Log In</button>
+<h5>click here if forget your password</h5>
+<a routerLink="/auth/forgot-password">forget password</a>
+<br>
+<a routerLink="/auth/register">register here</a>
 </form>
 </div>
 </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
+import { LogInService } from '../../log-in-service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -8,8 +11,12 @@ import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 loginForm: FormGroup;
+required: string = 'This field is required';
+email;
+pwd;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private logInService: LogInService ,
+    private router: Router) {
    
   }
 
@@ -24,13 +31,27 @@ loginForm: FormGroup;
      
       
       'email': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      'password': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
+      'pwd': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
     });
 
   }
+  // public onLoginClick(){
+  //   //this.logInService.validateUserDetails(this.email,this.pwd);
+  //   this.router.navigate(['/','how-to-apply']);
+  // }
 
-  onSubmit() {
-    console.log('jjjjjjjjjjjjj', this.loginForm.value);
+  onSubmit(data: any) {
+    this.logInService.logInData(data).subscribe(val=>{
+      console.log("val",val);
+      if(val)
+      { this.router.navigate(['/','how-to-apply']);
+    }else{
+      alert("Wrong credentials");
+    }
+
+    });
+    
+  }
 
   }
-}
+

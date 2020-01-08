@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { User } from './user';
-import { AngularServicesService } from '../angular-services.service';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 
 
@@ -11,35 +11,34 @@ import { AngularServicesService } from '../angular-services.service';
   styleUrls: ['./forgot-pasword.component.scss']
 })
 export class ForgotPaswordComponent implements OnInit {
-  ngOnInit(){
-    
-  }
-  
-
-forgetPasswordForm: FormGroup;
-email:String;
-user: any;
-
-  constructor(private fb: FormBuilder,
-    private service:AngularServicesService) {
-    this.forgetPasswordForm = this.fb.group({
-     question: [''],
-     answer: ['']
-     
-
-    });
-  }
-  state:boolean=false;
-  onSubmit() {
-    this.service.getEmployees(this.email)
-      .subscribe((data:any)=> {
-        console.log(data);
-        if(data.question!=null){
-           this.state = true;
-        }
-
-  })
  
+  forgetPasswordForm: FormGroup;
+  required: string = 'This field is required';
+  email;
+  pwd;
+  
+    constructor(private fb: FormBuilder,
+      private router: Router) {
+     
+    }
+  
+    ngOnInit() {
+      this.logIn();
+    }
+  
+    logIn() {
+      let name_regexg = "";
+      let number_regex = "";
+      this.forgetPasswordForm = this.fb.group({
+       
+        
+        'email': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
+        'pwd': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
+      });
+  
+    }
+}
 
-}
-}
+
+
+

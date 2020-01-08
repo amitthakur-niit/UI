@@ -1,21 +1,21 @@
+<div class="container">
+  <div class="header">
+</div>
+  <div class="form-container text">
+  <form [formGroup]="forgetPasswordForm" (ngSubmit)="onSubmit(forgetPasswordForm.value)" class="register-form">
+     <!--Email address-->
+     <mat-form-field class="register-form-full-width">
+      <input type="text" matInput placeholder="Email address" value="" formControlName="email">
+      <mat-error
+          *ngIf="!forgetPasswordForm.controls['email'].valid && forgetPasswordForm.controls['email'].touched">
+      
+      </mat-error>
+  </mat-form-field>
+ 
+  <br>
+  <button class="continue" mat-raised-button  color="warn">Submit</button>
 
-<section class="forgetPassword-section">
-    <form [formGroup]="forgetPasswordForm"  class="example-form">
-      <mat-form-field class="example-full-width">
-        <input matInput formControlName="email" placeholder="email">
-  
-      </mat-form-field>
-      <button mat-button (click)="onSubmit()">Submit</button>
-    </form>
-  </section>
-  
-  
-<section class="forgetPassword-section" [hidden]="!state">
-  <form [formGroup]="forgetPasswordForm"  class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput formControlName="email" placeholder="email">
+</form>
+</div>
+</div>
 
-    </mat-form-field>
-    <button mat-button (click)="onSubmit()">Submit</button>
-  </form>
-</section>

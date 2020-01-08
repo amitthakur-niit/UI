@@ -27,6 +27,7 @@ import { AuthModule } from './auth/auth.module';
 import { FormsListModule } from './forms/forms-list.module';
 import { MaterialDesignModule } from './materialDesign/material-design.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LogInService } from './log-in-service.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,7 @@ import { HttpClientModule } from '@angular/common/http';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
   ],
-  providers: [AngularServicesService],
+  providers: [AngularServicesService,LogInService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
