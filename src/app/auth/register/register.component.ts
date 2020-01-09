@@ -11,31 +11,29 @@ import { RegisterService } from '../../register.service';
 })
 export class RegisterComponent implements OnInit {
 
+  storedSuccess: boolean = false;
   formGroup: FormGroup;
-  required: string = 'This field is required';
+  required: string = 'This field is required.';
+  lengthError: string = 'Minimum 2 characters required.';
   datepicker: MatDatepicker<Date>;
+  formErrors: any;
 
-  constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
-
-  ngOnInit() {
-    this.createForm();
-  }
-
-  createForm() {
-    let name_regexg = "";
-    let number_regex = "";
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterService) {
     this.formGroup = this.formBuilder.group({
-      'firstName': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      'lastName': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      'dateOfBirth': new FormControl([null, Validators.required]),
-      'email': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      'password': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      'cnfPassword': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      'securityQuestion': [null, Validators.required],
-      'answer': new FormControl([null, Validators.required, Validators.minLength(3), Validators.pattern(name_regexg)]),
-      //  'singleOrJoint':[null,Validators.required],
+      firstName: [null, [Validators.required, Validators.minLength(2)]],
+      lastName: [null, [Validators.required, Validators.minLength(2)]],
+      dateOfBirth: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(8)]],
+      cnfPassword: [null, [Validators.required, Validators.minLength(8)]],
+      forgetPasswordQ: [null, Validators.required],
+      forgetPasswordA: [null, [Validators.required, Validators.minLength(2)]],
     });
 
+  }
+
+  ngOnInit() {
+    
   }
 
   questions: any[] = [
@@ -47,7 +45,13 @@ export class RegisterComponent implements OnInit {
   options: string[] = ['Single', 'Joint'];
 
   onSubmit(data: any) {
-    this.registerService.registerData(data).subscribe();
+    if (data.password === data.cnfPassword) {
+      this.registerService.registerData(data).subscribe(val => {
+        if (val.userId != null) {
+          this.storedSuccess = true;
+        }
+      });
+    }
   }
 
 }

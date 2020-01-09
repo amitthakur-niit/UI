@@ -38,67 +38,77 @@
                 </article>
 
                 <h3>Applicant information</h3>
-                <span class="fieldRequired">(All the fields marked with <span class="asterisk">*</span> are
-                    required)</span>
+                <span class="fieldRequired">(All the fields are required)</span>&nbsp;<span class="asterisk">*</span>
                 <div class="form-container text">
                     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="register-form">
 
                         <!--First name-->
                         <mat-form-field class="register-form-full-width" id="firstName">
-                            <input type="text" matInput placeholder="First Name" value="" formControlName="firstName">
-                            <mat-error
-                                *ngIf="!formGroup.controls['firstName'].valid && formGroup.controls['firstName'].touched">
+                            <input matInput placeholder="First Name" formControlName="firstName">
+                            <mat-error *ngIf="formGroup.controls['firstName'].errors?.required">
                                 {{ required }}
                             </mat-error>
+                            <mat-error *ngIf="formGroup.controls['firstName'].errors?.minlength">
+                                {{lengthError}}
+                            </mat-error>
                         </mat-form-field>
-                      
+
 
                         <!--Last name-->
                         <mat-form-field class="register-form-full-width">
-                            <input type="text" matInput placeholder="Last Name" value="" formControlName="lastName">
-                            <mat-error
-                                *ngIf="!formGroup.controls['lastName'].valid && formGroup.controls['lastName'].touched">
+                            <input matInput placeholder="Last Name" formControlName="lastName">
+                            <mat-error *ngIf="formGroup.controls['lastName'].errors?.required">
                                 {{ required }}
+                            </mat-error>
+                            <mat-error *ngIf="formGroup.controls['lastName'].errors?.minlength">
+                                {{lengthError}}
                             </mat-error>
                         </mat-form-field>
                         <!--Date of birth-->
                         <mat-form-field class="register-form-full-width">
-                            <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth" placeholder="Date of Birth">
+                            <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth"
+                                placeholder="Date of Birth">
                             <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
                             <mat-datepicker #dateOfBirth></mat-datepicker>
                         </mat-form-field>
 
                         <!--Email address-->
                         <mat-form-field class="register-form-full-width">
-                            <input type="text" matInput placeholder="Email address" value="" formControlName="email">
-                            <mat-error
-                                *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+                            <input matInput placeholder="Email address" value="" formControlName="email">
+                            <mat-error *ngIf="formGroup.controls['email'].errors?.required">
                                 {{ required }}
+                            </mat-error>
+                            <mat-error *ngIf="formGroup.controls['email'].errors?.email">
+                                Please enter the valid email address.
                             </mat-error>
                         </mat-form-field>
 
                         <!--Password-->
                         <mat-form-field class="register-form-full-width">
-                            <input type="text" matInput placeholder="Password" value="" formControlName="password">
-                            <mat-error
-                                *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+                            <input matInput placeholder="Password" value="" formControlName="password">
+                            <mat-error *ngIf="formGroup.controls['password'].errors?.required">
                                 {{ required }}
+                            </mat-error>
+                            <mat-error *ngIf="formGroup.controls['password'].errors?.minlength">
+                                Minimum length 8 characters required
                             </mat-error>
                         </mat-form-field>
 
                         <!--Confirm Password-->
                         <mat-form-field class="register-form-full-width">
-                            <input type="text" matInput placeholder="Confirm password" value=""
+                            <input matInput placeholder="Confirm password" value=""
                                 formControlName="cnfPassword">
-                            <mat-error
-                                *ngIf="!formGroup.controls['cnfPassword'].valid && formGroup.controls['cnfPassword'].touched">
-                                {{ required }}
-                            </mat-error>
+                                <mat-error *ngIf="formGroup.controls['cnfPassword'].errors?.required">
+                                    {{ required }}
+                                </mat-error>
+                                <mat-error *ngIf="formGroup.controls['cnfPassword'].errors?.minlength">
+                                    Minimum length 8 characters required
+                                </mat-error>
                         </mat-form-field>
 
                         <!--Security question-->
                         <mat-form-field class="register-form-full-width">
-                            <mat-select placeholder="Select the question" formControlName="securityQuestion">
+                            <mat-select placeholder="Select the question" formControlName="forgetPasswordQ">
                                 <mat-option *ngFor="let question of questions" [value]="question.value">
                                     {{question.viewValue}}
                                 </mat-option>
@@ -107,26 +117,15 @@
 
                         <!--Answer-->
                         <mat-form-field class="register-form-full-width">
-                            <input type="text" matInput placeholder="Answer" value="" formControlName="answer">
-                            <mat-error
-                                *ngIf="!formGroup.controls['answer'].valid && formGroup.controls['answer'].touched">
+                            <input matInput placeholder="Answer" value="" formControlName="forgetPasswordA">
+                            <mat-error *ngIf="formGroup.controls['forgetPasswordA'].errors?.required">
                                 {{ required }}
+                            </mat-error>
+                            <mat-error *ngIf="formGroup.controls['forgetPasswordA'].errors?.minlength">
+                                {{lengthError}}
                             </mat-error>
                         </mat-form-field>
 
-                        <!--Single or joint-->
-                        <!--  <br>
-                    <h3>Is this a single or joint application?</h3>
-                    <mat-button-toggle-group formControlName="singleOrJoint">
-                        <mat-button-toggle value="Single" style="color: brown;">
-                           Single
-                        </mat-button-toggle>
-                        <mat-button-toggle value="Joint" style="color: brown;">
-                            Joint
-                        </mat-button-toggle>
-                    </mat-button-toggle-group> -->
-
-                        <!--applicant 2 information-->
                         <br>
                         <button class="continue" mat-raised-button color="warn">continue</button>
 
@@ -148,7 +147,8 @@
                     <div class="info-box">
                         <span class="homeTest">YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR
                             MORTGAGE</span>
-                        <p class="disclaimer">All applications are subject to status and our lending criteria. This means that the amount
+                        <p class="disclaimer">All applications are subject to status and our lending criteria. This
+                            means that the amount
                             we will lend you will depend on your individual circumstances, the type of property and the
                             amount you borrow. For example, we may require a higher deposit if you are buying a flat or
                             a new build property.</p>

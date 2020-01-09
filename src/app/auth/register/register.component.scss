@@ -1,6 +1,5 @@
 .header h1 {
     font-family: Arial, sans-serif;
-    //font-weight: bold;
     font-size: 32px;
     line-height: 106.25%;
     color: #444;
@@ -8,7 +7,6 @@
 
 h1 {
    font-family: Arial, sans-serif;
-    //font-weight: bold;
     font-size: 25px;
     line-height: 106.25%;
     color: #444;
@@ -55,6 +53,10 @@ h1 {
     margin-bottom: 32px;
  }
 
+ .asterisk{
+    color: red;
+ }
+
  .register-form {
     min-width: 50rem;
     max-width: 50rem;
@@ -64,26 +66,6 @@ h1 {
     width: 30rem;
   }
 
-  .example-radio-group {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-  }
-  
-  .example-radio-button {
-    margin: 5px;
-  }
-
-  .button_class{
-    
-    max-width: 20rem;
-    display : flex;
-    justify-content: space-evenly;
-
-    &-no{
-        background-color: red;
-    }
-}
 
 .form-container{
    display : flex;
@@ -101,10 +83,12 @@ form{
 .continue{
    border-radius: 1em;
    font-size: 1em;
-   padding: 0.5em;
+   width:2rem;
+   padding: 0.2em 0.4em;
    background-color:rgb(161, 7, 7);
    color:#fff;
    margin: 1em 0 1em 0;
+  width: 15%;
 }
 
 .information{
@@ -114,9 +98,9 @@ form{
    border-style: solid;
    padding: 1em;
    margin:4rem -13rem;
-  //margin : 3.7rem 0 0 36rem;
   border-color: rgb(175, 176, 177);
   flex: 0 0 45%;
+  background-color: #fff;
 
 }
 
@@ -124,9 +108,6 @@ form{
    float: left;
 }
 
-.asterisk{
-color:red;
-}
 
 .fieldRequired{
    font-size: 1.1em;
