@@ -48,9 +48,7 @@ this.toggle = true;
      });
       };
 
-     public validateEmail(){
-       alert();
-     }
+     
 }
 
 

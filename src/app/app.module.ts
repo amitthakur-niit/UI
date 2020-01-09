@@ -28,13 +28,15 @@ import { FormsListModule } from './forms/forms-list.module';
 import { MaterialDesignModule } from './materialDesign/material-design.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LogInService } from './log-in-service.service';
+import { ResetPassowrdComponent } from '../app/auth/reset-passowrd/reset-passowrd.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContentComponent
+    ContentComponent,
+    ResetPassowrdComponent
  
   ],
   imports: [

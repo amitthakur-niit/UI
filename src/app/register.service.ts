@@ -29,4 +29,9 @@ export class RegisterService {
 
     return this.http.post<any>(this.url + 'user-registration-service/users/forgetPassword', requestBody)
   }
+
+  resetPass(requestBody:Question):Observable<any>{
+
+    return this.http.post<any>(this.url + 'user-registration-service/users/resetPassword', requestBody)
+  }
 }

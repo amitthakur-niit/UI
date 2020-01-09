@@ -11,12 +11,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MaterialDesignModule } from '../materialDesign/material-design.module';
 
+
 @NgModule({
   declarations: [
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    ForgotPaswordComponent
+    ForgotPaswordComponent,
+
   ],
   imports: [
     CommonModule,
