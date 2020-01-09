@@ -25,7 +25,7 @@ import { MaterialDesignModule } from '../materialDesign/material-design.module';
     MaterialDesignModule
 
   ],
-  exports: [RegisterComponent,
+  exports: [//RegisterComponent,
     LoginComponent,
     LogoutComponent,
     ForgotPaswordComponent],

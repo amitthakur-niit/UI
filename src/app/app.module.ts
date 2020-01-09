@@ -20,6 +20,9 @@ import { ValuationComponent } from './forms/valuation/valuation.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularServicesService } from './auth/angular-services.service';
+
+
 import { AuthModule } from './auth/auth.module';
 import { FormsListModule } from './forms/forms-list.module';
 import { MaterialDesignModule } from './materialDesign/material-design.module';
@@ -49,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
+    HttpClientModule,
     FormsListModule,
     MaterialDesignModule
   ],
@@ -70,7 +74,7 @@ import { HttpClientModule } from '@angular/common/http';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
   ],
-  providers: [],
+  providers: [AngularServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
