@@ -1,3 +1,5 @@
+
+
 export interface Register {
     password : String;
 	firstName : String;
@@ -6,4 +8,11 @@ export interface Register {
     email : String;
     forgetPasswordA : String;
     forgetPasswordQ : String;
+    userId:BigInteger;
+}
+
+export interface RegisterResponse{
+    email : String;
+    userId:BigInteger;
+    message:String;
 }
