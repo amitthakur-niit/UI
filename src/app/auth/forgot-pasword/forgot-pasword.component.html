@@ -24,21 +24,29 @@
 <div class="header">
 </div>
   <div class="form-container text">
-  <form [formGroup]="forgetPasswordForm" (ngSubmit)="onSubmit(forgetPasswordForm.value)" class="register-form" [hidden]="!toggle">
+  <form [formGroup]="forgetPasswordQForm" (ngSubmit)="onSubmit2(forgetPasswordQForm.value)" class="register-form" [hidden]="!toggle">
+
+    <mat-form-field class="register-form-full-width">
+      <input type="text" matInput placeholder="Email" value= "{{email}}"  formControlName="emails" disabled>
+      <mat-error
+          *ngIf="!forgetPasswordQForm.controls['emails'].valid && forgetPasswordQForm.controls['emails'].touched">
+      
+      </mat-error>
+  </mat-form-field>
      <!--Email address-->
      <mat-form-field class="register-form-full-width">
-      <input type="text" matInput placeholder="Question" value=""  formControlName="email">
+      <input type="text" matInput placeholder="Question" value= "{{question}}"  formControlName="questions" disabled>
       <mat-error
-          *ngIf="!forgetPasswordForm.controls['email'].valid && forgetPasswordForm.controls['email'].touched">
+          *ngIf="!forgetPasswordQForm.controls['questions'].valid && forgetPasswordQForm.controls['questions'].touched">
       
       </mat-error>
   </mat-form-field>
 
    <!--Email address-->
      <mat-form-field class="register-form-full-width">
-      <input type="text" matInput placeholder="Answer" value=""  formControlName="email">
+      <input type="text" matInput placeholder="Answer" value=""  formControlName="answer">
       <mat-error
-          *ngIf="!forgetPasswordForm.controls['email'].valid && forgetPasswordForm.controls['email'].touched">
+          *ngIf="!forgetPasswordQForm.controls['answer'].valid && forgetPasswordQForm.controls['answer'].touched">
       
       </mat-error>
   </mat-form-field>

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Register } from './auth/register/register';
 import { Question } from './auth/forgot-pasword/question';
 
+import { Forget } from '../app/auth/forgot-pasword/forgetPassword';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +27,11 @@ export class RegisterService {
   forgotPaswd(requestBody:Question):Observable<any>{
 
     return this.http.post<any>(this.url + 'user-registration-service/users/forgetPassword', requestBody)
+  }
+
+  forgotPaswd2(requestBody:Forget):Observable<any>{
+
+    return this.http.post<any>(this.url + 'user-registration-service/users/forgetPassword/reset', requestBody)
   }
 
   resetPass(requestBody:Question):Observable<any>{
